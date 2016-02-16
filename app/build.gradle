@@ -44,7 +44,11 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
     compile 'com.squareup.okhttp3:okhttp:3.1.2'
     compile 'com.squareup.okhttp3:logging-interceptor:3.1.2'
-
+    // SQLBrite
+    compile 'com.squareup.sqlbrite:sqlbrite:0.5.1'
+    // helper for seamless parceling
+    compile 'com.github.frankiesardo:auto-parcel:0.3.1'
+    apt 'com.github.frankiesardo:auto-parcel-processor:0.3.1'
     // Test
     testCompile 'junit:junit:4.12'
 }

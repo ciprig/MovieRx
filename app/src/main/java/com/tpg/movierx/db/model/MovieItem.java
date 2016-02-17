@@ -13,10 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.tpg.movierx.db;
+package com.tpg.movierx.db.model;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+
+import com.tpg.movierx.db.Db;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,7 +94,7 @@ public abstract class MovieItem {
         }
 
         public ContentValues build() {
-            return values; // TODO defensive copy?
+            return values;
         }
 
         public MovieItem buildItem() {

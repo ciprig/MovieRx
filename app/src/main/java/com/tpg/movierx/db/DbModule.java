@@ -20,6 +20,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.squareup.sqlbrite.BriteDatabase;
 import com.squareup.sqlbrite.SqlBrite;
+import com.tpg.movierx.db.dao.MovieItemDao;
 
 import javax.inject.Singleton;
 
@@ -46,5 +47,11 @@ public final class DbModule {
     @Singleton
     BriteDatabase provideDatabase(SqlBrite sqlBrite, SQLiteOpenHelper helper) {
         return sqlBrite.wrapDatabaseHelper(helper);
+    }
+
+    @Provides
+    @Singleton
+    MovieItemDao provideMovieItemDao(BriteDatabase db) {
+        return new MovieItemDao(db);
     }
 }

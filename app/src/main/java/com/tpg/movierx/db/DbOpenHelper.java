@@ -19,6 +19,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.tpg.movierx.db.model.MovieItem;
+
 final class DbOpenHelper extends SQLiteOpenHelper {
     private static final int VERSION = 1;
 

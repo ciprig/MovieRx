@@ -1,5 +1,7 @@
 package com.tpg.movierx.db;
 
+import com.tpg.movierx.db.model.MovieItem;
+
 /**
  * Created by karoly.szanto on 11/11/15.
  */

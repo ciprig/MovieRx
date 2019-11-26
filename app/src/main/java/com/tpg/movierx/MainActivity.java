@@ -1,13 +1,14 @@
 package com.tpg.movierx;
 
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v7.widget.LinearLayoutManager;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListPopupWindow;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+
+import com.google.android.material.snackbar.Snackbar;
 import com.jakewharton.rxbinding.widget.AdapterViewItemClickEvent;
 import com.jakewharton.rxbinding.widget.RxTextView;
 import com.tpg.movierx.db.dao.MovieItemDao;
@@ -22,7 +23,8 @@ import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import rx.android.schedulers.AndroidSchedulers;
 
 public class MainActivity extends BaseActivity {
@@ -35,13 +37,13 @@ public class MainActivity extends BaseActivity {
     @Inject
     MovieItemDao movieItemDao;
 
-    @Bind(R.id.searchText)
+    @BindView(R.id.searchText)
     EditText searchText;
 
-    @Bind(R.id.movies_list)
+    @BindView(R.id.movies_list)
     MoviesRecycler moviesRecycler;
 
-    @Bind(R.id.empty_recycler)
+    @BindView(R.id.empty_recycler)
     View emptyRecyclerView;
 
     ListPopupWindow popup;
@@ -58,6 +60,8 @@ public class MainActivity extends BaseActivity {
         MovieApplication.component(this).inject(this);
 
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+
         popup = new ListPopupWindow(this);
         popup.setAnchorView(toolbar);
         adapter = new MoviePopupAdapter();

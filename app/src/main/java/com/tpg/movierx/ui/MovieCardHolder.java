@@ -1,16 +1,16 @@
 package com.tpg.movierx.ui;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.tpg.movierx.R;
 import com.tpg.movierx.db.model.MovieItem;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -18,13 +18,13 @@ import butterknife.ButterKnife;
  */
 public class MovieCardHolder extends RecyclerView.ViewHolder {
 
-    @Bind(R.id.poster)
+    @BindView(R.id.poster)
     ImageView posterView;
 
-    @Bind(R.id.title)
+    @BindView(R.id.title)
     TextView titleView;
 
-    @Bind(R.id.actors)
+    @BindView(R.id.actors)
     TextView actorsView;
 
     public MovieCardHolder(View itemView) {
@@ -38,7 +38,6 @@ public class MovieCardHolder extends RecyclerView.ViewHolder {
 
         Glide.with(itemView.getContext())
                 .load(item.poster())
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(posterView);
     }
 }

@@ -1,20 +1,19 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'com.jakewharton.butterknife'
 //apply plugin: 'android-apt'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.0'
+    compileSdkVersion 29
+    buildToolsVersion '25.0.3'
 
     defaultConfig {
         applicationId "com.tpg.movierx"
         minSdkVersion 15
-        targetSdkVersion 25
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-
-        jackOptions {
-            enabled true
-        }
     }
     buildTypes {
         debug {
@@ -47,44 +46,50 @@ android {
 }
 
 dependencies {
-    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
-    compile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
-    compile "com.android.support:support-annotations:$rootProject.supportLibraryVersion"
-    compile "com.android.support:design:$rootProject.supportLibraryVersion"
-    compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
-    compile "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
 
-    compile 'com.github.bumptech.glide:glide:3.6.1'
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
     // RX
-    compile 'io.reactivex:rxandroid:1.1.0'
+    implementation 'io.reactivex:rxandroid:1.1.0'
     // Because RxAndroid releases are few and far between, it is recommended you also
     // explicitly depend on RxJava's latest version for bug fixes and new features.
-    compile 'io.reactivex:rxjava:1.1.0'
-    compile 'com.jakewharton.rxbinding:rxbinding:0.3.0'
-    compile 'com.trello:rxlifecycle:0.4.0'
-    compile 'com.trello:rxlifecycle-components:0.3.0'
+    implementation 'io.reactivex:rxjava:1.1.5'
+    implementation 'com.jakewharton.rxbinding:rxbinding:0.3.0'
+    implementation 'com.trello:rxlifecycle:0.4.0'
+    implementation 'com.trello:rxlifecycle-components:0.3.0'
     // Dependency Injection
-    provided 'javax.annotation:jsr250-api:1.0'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.0.1'
-    compile 'com.google.dagger:dagger:2.0.1'
+    compileOnly 'javax.annotation:jsr250-api:1.0'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.16'
+    implementation 'com.google.dagger:dagger:2.16'
     // View binding
-    compile 'com.jakewharton:butterknife:7.0.1'
+    implementation 'com.jakewharton:butterknife:10.2.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
     // Retrofit
-    compile "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
-    compile "com.squareup.retrofit2:adapter-rxjava:$rootProject.retrofitVersion"
-    compile "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
-    compile 'com.squareup.okhttp3:okhttp:3.1.2'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.1.2'
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+    implementation 'com.squareup.okhttp3:okhttp:3.14.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.14.1'
     // slf4j - logging library
-    compile 'org.slf4j:slf4j-api:1.7.6'
-    debugCompile 'org.slf4j:slf4j-android:1.7.6'
-    releaseCompile 'org.slf4j:slf4j-nop:1.7.6'
+    implementation 'org.slf4j:slf4j-api:1.7.22'
+    debugImplementation 'org.slf4j:slf4j-android:1.7.6'
+    releaseImplementation 'org.slf4j:slf4j-nop:1.7.6'
     // SQLBrite
-    compile 'com.squareup.sqlbrite:sqlbrite:0.5.1'
+    implementation 'com.squareup.sqlbrite:sqlbrite:0.5.1'
     // helper for seamless parceling
-    compile 'com.github.frankiesardo:auto-parcel:0.3.1'
+    implementation 'com.github.frankiesardo:auto-parcel:0.3.1'
     annotationProcessor 'com.github.frankiesardo:auto-parcel-processor:0.3.1'
     // Test
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.mockito:mockito-core:1.10.19'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:2.27.0'
+    implementation 'androidx.core:core-ktx:1.1.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

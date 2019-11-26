@@ -1,13 +1,14 @@
 package com.tpg.movierx;
 
-import android.support.annotation.Nullable;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
+
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -17,7 +18,7 @@ import butterknife.ButterKnife;
  */
 public abstract class BaseActivity extends RxAppCompatActivity {
 
-    @Bind(R.id.toolbar)
+    @BindView(R.id.toolbar)
     @Nullable
     Toolbar toolbar;
 

@@ -1,8 +1,9 @@
 package com.tpg.movierx.rxbinding;
 
-import android.support.annotation.CheckResult;
-import android.support.annotation.NonNull;
 import android.widget.ListPopupWindow;
+
+import androidx.annotation.CheckResult;
+import androidx.annotation.NonNull;
 
 import com.jakewharton.rxbinding.widget.AdapterViewItemClickEvent;
 
